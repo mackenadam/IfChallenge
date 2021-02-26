@@ -10,7 +10,21 @@ namespace IfChallenge
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Welcome! To register please follow the steps below.");
+            string registeredUsername = getUserInput("a new username");
+            string registeredPassword = getUserInput("a new password");
+            Console.WriteLine("Thank you, your credentials have been saved.");
+
+            Console.WriteLine("To login please enter your saved credentials.");
+            string loginUsername = getUserInput("your username");
+            string loginPassword = getUserInput("your password");
+
+        }
+
+        public static string getUserInput(string requiredField)
+        {
+            Console.WriteLine("Please enter {0}:", requiredField);
+            return Console.ReadLine();
         }
     }
 }
