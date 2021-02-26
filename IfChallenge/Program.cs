@@ -13,18 +13,29 @@ namespace IfChallenge
             Console.WriteLine("Welcome! To register please follow the steps below.");
             string registeredUsername = getUserInput("a new username");
             string registeredPassword = getUserInput("a new password");
+            Console.WriteLine("Processing...");
             Console.WriteLine("Thank you, your credentials have been saved.");
 
             Console.WriteLine("To login please enter your saved credentials.");
             string loginUsername = getUserInput("your username");
             string loginPassword = getUserInput("your password");
+            Console.WriteLine("Processing...");
 
+            bool checkedUsername = compareInputs(registeredUsername, loginUsername);
+            bool checkedPassword = compareInputs(registeredPassword, loginPassword);
+
+            
         }
 
         public static string getUserInput(string requiredField)
         {
             Console.WriteLine("Please enter {0}:", requiredField);
             return Console.ReadLine();
+        }
+
+        public static bool compareInputs(string savedString, string newString)
+        {
+            return savedString.Equals(newString);
         }
     }
 }
