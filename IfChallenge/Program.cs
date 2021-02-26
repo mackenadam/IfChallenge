@@ -24,6 +24,7 @@ namespace IfChallenge
             bool checkedUsername = compareInputs(registeredUsername, loginUsername);
             bool checkedPassword = compareInputs(registeredPassword, loginPassword);
 
+            authenticateUser(checkedUsername, checkedPassword, loginUsername);
             
         }
 
@@ -36,6 +37,18 @@ namespace IfChallenge
         public static bool compareInputs(string savedString, string newString)
         {
             return savedString.Equals(newString);
+        }
+
+        public static void authenticateUser(bool checkedUsername, bool checkedPassword, string username)
+        {
+            if (checkedUsername && checkedPassword)
+            {
+                Console.WriteLine("Welcome back, {0}. You were successfully logged in.", username);
+            }
+            else
+            {
+                Console.WriteLine("We're sorry, but there was an error during login. Please make sure you have entered a valid username and password.");
+            }
         }
     }
 }
