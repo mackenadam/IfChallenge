@@ -8,24 +8,37 @@ namespace IfChallenge
 {
     class Program
     {
+        static string username;
+        static string password;
+        static string loginUsername;
+        static string loginPassword;
+
         static void Main(string[] args)
         {
+            Register();
+            Login();
+        }
+
+        public static void Register()
+        {
             Console.WriteLine("Welcome! To register please follow the steps below.");
-            string registeredUsername = getUserInput("a new username");
-            string registeredPassword = getUserInput("a new password");
+            username = getUserInput("a new username");
+            password = getUserInput("a new password");
             Console.WriteLine("Processing...");
             Console.WriteLine("Thank you, your credentials have been saved.");
+            Console.WriteLine("---------------------------------------------");
+        }
 
+        public static void Login()
+        {
             Console.WriteLine("To login please enter your saved credentials.");
-            string loginUsername = getUserInput("your username");
-            string loginPassword = getUserInput("your password");
+            loginUsername = getUserInput("your username");
+            loginPassword = getUserInput("your password");
             Console.WriteLine("Processing...");
 
-            bool checkedUsername = compareInputs(registeredUsername, loginUsername);
-            bool checkedPassword = compareInputs(registeredPassword, loginPassword);
-
+            bool checkedUsername = compareInputs(username, loginUsername);
+            bool checkedPassword = compareInputs(password, loginPassword);
             authenticateUser(checkedUsername, checkedPassword, loginUsername);
-            
         }
 
         public static string getUserInput(string requiredField)
@@ -47,7 +60,7 @@ namespace IfChallenge
             }
             else
             {
-                Console.WriteLine("We're sorry, but there was an error during login. Please make sure you have entered a valid username and password.");
+                Console.WriteLine("We're sorry, but there was an error during login. Please restart the program and make sure you enter a valid username and password.");
             }
         }
     }
